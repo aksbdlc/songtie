@@ -1,0 +1,120 @@
+.songtie-scene-renderer,
+.songtie-scene-editor__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.songtie-scene-editor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+}
+
+.songtie-scene-editor__canvas {
+  cursor: crosshair;
+}
+
+.songtie-drawing-toolbar {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 50%;
+  display: flex;
+  max-width: calc(100% - 24px);
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  overflow-x: auto;
+  border: 1px solid rgb(56 48 38 / 14%);
+  border-radius: 12px;
+  background: rgb(255 253 246 / 92%);
+  box-shadow: 0 6px 22px rgb(52 45 35 / 14%);
+  transform: translateX(-50%);
+  backdrop-filter: blur(8px);
+}
+
+.songtie-drawing-toolbar button {
+  flex: none;
+  padding: 6px 9px;
+  border: 0;
+  border-radius: 7px;
+  color: #514a40;
+  background: transparent;
+  cursor: pointer;
+  font:
+    13px/1.2 system-ui,
+    sans-serif;
+}
+
+.songtie-drawing-toolbar button:hover,
+.songtie-drawing-toolbar button.is-active {
+  color: #302b25;
+  background: #efe5ce;
+}
+
+.songtie-drawing-toolbar button:focus-visible,
+.songtie-color-control input:focus-visible {
+  outline: 2px solid #5278d8;
+  outline-offset: 2px;
+}
+
+.songtie-color-control {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 5px;
+  padding-left: 6px;
+  color: #514a40;
+  font:
+    13px/1.2 system-ui,
+    sans-serif;
+}
+
+.songtie-color-control input {
+  width: 26px;
+  height: 26px;
+  padding: 1px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.songtie-text-editor textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  resize: none;
+  overflow: hidden;
+  border: 1.5px dashed #5278d8;
+  outline: none;
+  background: rgb(255 255 255 / 16%);
+  font-family: 'Comic Sans MS', 'Kaiti SC', 'STKaiti', 'KaiTi', cursive;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.songtie-text-limit {
+  position: absolute;
+  z-index: 4;
+  right: 10px;
+  bottom: 10px;
+  max-width: min(320px, calc(100% - 20px));
+  padding: 7px 10px;
+  border-radius: 9px;
+  color: #70483f;
+  background: rgb(255 240 220 / 94%);
+  box-shadow: 0 5px 16px rgb(70 45 34 / 14%);
+  font:
+    12px/1.4 system-ui,
+    sans-serif;
+  pointer-events: none;
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "松贴两个本地窗口的最小核心权限",
+  "windows": ["main", "quick-capture"],
+  "permissions": ["core:default", "core:window:allow-hide"]
+}

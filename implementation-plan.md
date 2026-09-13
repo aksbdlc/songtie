@@ -42,14 +42,14 @@
 
 ### 3.1 推荐技术栈
 
-| 层级 | 选择 | 所有职责 |
-|---|---|---|
-| 桌面壳 | Tauri 2 / Rust | 窗口、托盘、全局快捷键、开机自启、单实例、应用生命周期 |
-| 界面 | React + TypeScript + Vite | 墙面、随手贴、检视模式、完成墙与动画 |
-| 应用状态 | 轻量 TypeScript store | 当前可见状态、命令调度、异步保存状态；不直接执行 SQL |
-| 绘图适配 | `@excalidraw/excalidraw` | 活动场景编辑、元素序列化、静态 SVG/Canvas 导出 |
-| 本地存储 | SQLite | 便利贴元数据、场景 JSON、完成档案、设置、迁移 |
-| 测试 | Vitest + Testing Library + Playwright + Rust tests | 领域规则、适配器契约、关键交互与桌面冒烟验证 |
+| 层级     | 选择                                               | 所有职责                                               |
+| -------- | -------------------------------------------------- | ------------------------------------------------------ |
+| 桌面壳   | Tauri 2 / Rust                                     | 窗口、托盘、全局快捷键、开机自启、单实例、应用生命周期 |
+| 界面     | React + TypeScript + Vite                          | 墙面、随手贴、检视模式、完成墙与动画                   |
+| 应用状态 | 轻量 TypeScript store                              | 当前可见状态、命令调度、异步保存状态；不直接执行 SQL   |
+| 绘图适配 | `@excalidraw/excalidraw`                           | 活动场景编辑、元素序列化、静态 SVG/Canvas 导出         |
+| 本地存储 | SQLite                                             | 便利贴元数据、场景 JSON、完成档案、设置、迁移          |
+| 测试     | Vitest + Testing Library + Playwright + Rust tests | 领域规则、适配器契约、关键交互与桌面冒烟验证           |
 
 选择 Tauri 2 的直接原因是：当前官方能力已经覆盖系统托盘、全局快捷键、自启动和 SQLite；应用仍可用 React 集成 Excalidraw，同时避免把桌面生命周期交给前端页面。
 
@@ -151,7 +151,7 @@ songtie/
 ```ts
 type Note = {
   id: NoteId;
-  size: "small" | "medium" | "large";
+  size: 'small' | 'medium' | 'large';
   position: { x: number; y: number; z: number };
   scene: DrawingScene;
   passiveDate: string | null;
@@ -174,7 +174,7 @@ type Note = {
 
 ```ts
 type Wall = {
-  id: "active";
+  id: 'active';
   bounds: { width: number; height: number };
   scene: DrawingScene;
   revision: number;
@@ -190,7 +190,7 @@ type Wall = {
 ```ts
 type CompletedNote = {
   id: NoteId;
-  size: Note["size"];
+  size: Note['size'];
   scene: DrawingScene;
   completedOn: string; // YYYY-MM-DD
   completedOrder: number;
@@ -206,7 +206,7 @@ type CompletedNote = {
 ```ts
 type DrawingScene = {
   schemaVersion: 1;
-  engine: "excalidraw";
+  engine: 'excalidraw';
   engineVersion: string;
   payload: unknown;
 };
